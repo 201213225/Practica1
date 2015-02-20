@@ -10,5 +10,5 @@ package javaapplication5;
  * @author Denis
  */
 public class Cola {
-    Planta raiz;
+    
 }
