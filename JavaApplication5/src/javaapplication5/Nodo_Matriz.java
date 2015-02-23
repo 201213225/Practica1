@@ -10,6 +10,8 @@ package javaapplication5;
  * @author Denis
  */
 public class Nodo_Matriz {
+    int x;
+    int y;
     Nodo_Matriz izq;
     Nodo_Matriz der;
     Nodo_Matriz ar;

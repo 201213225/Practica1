@@ -15,7 +15,9 @@ public class JavaApplication5 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Matriz tablero;
+        Matriz tablero=new Matriz();
+        tablero.Generar_matriz(5, 5);
+        //System.out.println("x: "+tablero.Raiz.ab.ab.der.x+", y: "+tablero.Raiz.ab.ab.der.y);
         Menu prueba = new Menu();
         prueba.show();
     }
