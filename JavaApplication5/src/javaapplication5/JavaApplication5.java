@@ -16,7 +16,7 @@ public class JavaApplication5 {
      */
     public static void main(String[] args) {
         Matriz tablero=new Matriz();
-        tablero.Generar_matriz(5, 5);
+        //tablero.Generar_matriz(5, 5);
         //System.out.println("x: "+tablero.Raiz.ab.ab.der.x+", y: "+tablero.Raiz.ab.ab.der.y);
         Menu prueba = new Menu();
         prueba.show();

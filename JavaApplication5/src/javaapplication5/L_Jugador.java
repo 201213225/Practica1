@@ -10,5 +10,12 @@ package javaapplication5;
  * @author Denis
  */
 public class L_Jugador {
-    
+    Nodo_Jugador raiz;
+    public void agragar_jugador(String nombre,int cantidad){
+        if(raiz==null){
+            raiz = new Nodo_Jugador();
+            raiz.cantidad=cantidad;
+            raiz.nombre = nombre;
+        }
+    }
 }
