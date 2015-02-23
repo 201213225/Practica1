@@ -36,5 +36,20 @@ public class L_Cola {
         }
         return null;
     }
-    public void eliminar(){}
+    public void eliminar(String nombre){
+        if(lista!=null){
+            Nodo_Cola aux=lista;
+            while(aux!=null && aux.planta.Nombre!=nombre){
+                aux=aux.siguiente;
+            }
+            if(aux!=null){
+                if(aux.siguiente!=null){
+                    aux.siguiente.anterior=aux.anterior;
+                }
+                if(aux.anterior!=null){
+                    aux.anterior.siguiente=aux.siguiente;
+                }
+            }   
+        }
+    }
 }
