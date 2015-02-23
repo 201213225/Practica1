@@ -9,6 +9,8 @@ package javaapplication5;
  *
  * @author Denis
  */
-public class Zombi {
-    Zombi siguiente;
+public class Nodo_Cola {
+    Nodo_Personaje planta;
+    Nodo_Cola siguiente;
+    Nodo_Cola anterior;
 }
