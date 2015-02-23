@@ -10,5 +10,6 @@ package javaapplication5;
  * @author Denis
  */
 public class Nodo_Jugador {
-    
+    String texto;
+    Nodo_Jugador siguiente;
 }

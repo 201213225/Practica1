@@ -15,6 +15,7 @@ public class JavaApplication5 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Matriz tablero;
         Menu prueba = new Menu();
         prueba.show();
     }
