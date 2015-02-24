@@ -14,12 +14,17 @@ public class JavaApplication5 {
     /**
      * @param args the command line arguments
      */
+    public static Matriz tablero;
+    public static L_Jugador jugadores;
+    public static Menu prueba;
     public static void main(String[] args) {
-        Matriz tablero=new Matriz();
+        jugadores = new L_Jugador();
+        
         //tablero.Generar_matriz(5, 5);
         //System.out.println("x: "+tablero.Raiz.ab.ab.der.x+", y: "+tablero.Raiz.ab.ab.der.y);
-        Menu prueba = new Menu();
+        prueba = new Menu();
         prueba.show();
+        
     }
     
 }

@@ -11,24 +11,24 @@ package javaapplication5;
  */
 public class Nodo_Jugador {
 
+    String tipo;
     Nodo_Jugador siguiente;
     Nodo_Texto texto;
     String nombre;
     int cantidad;
 
     public void agregar_texto(String texto) {
-        if(this.texto==null){
+        if (this.texto == null) {
             this.texto = new Nodo_Texto();
             this.texto.texto = texto;
-        }
-        else{
+        } else {
             Nodo_Texto aux = this.texto;
-            while(aux.siguiente==null){
-                aux.siguiente = new Nodo_Texto();
-                aux.siguiente.texto = texto;
+            while (aux.siguiente != null) {
+                aux = aux.siguiente;
             }
+            aux.siguiente = new Nodo_Texto();
+            aux.siguiente.texto = texto;
         }
-        
-        
+
     }
 }
