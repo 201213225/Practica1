@@ -20,24 +20,35 @@ public class Crear_Personajes extends javax.swing.JFrame {
     public Crear_Personajes() {
         initComponents();
     }
+
     public Crear_Personajes(String Titulo) {
         initComponents();
         this.setTitle(Titulo);
         //String titulo = 
-        addWindowListener(new WindowAdapter()
-        {
-            @Override
-            public void windowClosing(WindowEvent e)
-            {
-                if(Titulo.equals("Personajes Plantas")){
+        if (Titulo.equals("Personajes Plantas")) {
+            addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+
+                    Crear_Personajes personajes;
+                    personajes = new Crear_Personajes("Personajes Zombis");
+                    //personajes.setTitle("Personajes Zombis");
+                    personajes.show();
+                    
+                    //this.dispose();
                 }
-                Crear_Personajes personajes;
-                personajes = new Crear_Personajes("Personajes Zombis");
-                //personajes.setTitle("Personajes Zombis");
-                personajes.show();
-                //this.dispose();
-            }
-        });
+            });
+        }else{
+            addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    Zona_Juego Tablero;
+                    Tablero = new Zona_Juego();
+                    Tablero.show();
+                }
+            });
+        }
+
     }
 
     /**
