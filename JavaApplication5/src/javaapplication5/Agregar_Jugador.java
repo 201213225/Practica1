@@ -5,6 +5,8 @@
  */
 package javaapplication5;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.WindowConstants;
 
 /**
@@ -29,7 +31,7 @@ public class Agregar_Jugador extends javax.swing.JFrame {
     Agregar_Jugador(String Titulo) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         initComponents();
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        //this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.setTitle(Titulo);
         L_Jugador aux = JavaApplication5.jugadores;
         if (aux.raiz != null) {
@@ -52,6 +54,15 @@ public class Agregar_Jugador extends javax.swing.JFrame {
             this.txtext.setVisible(false);
             this.jLabel3.setVisible(false);
         }
+         addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                JavaApplication5.prueba.setVisible(true);
+                //e.getWindow().dispose();
+            }
+        });
     }
 
     /**
@@ -71,7 +82,7 @@ public class Agregar_Jugador extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         txnombre.setToolTipText("");
 

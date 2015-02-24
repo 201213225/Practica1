@@ -19,11 +19,13 @@ public class JavaApplication5 {
     public static Menu prueba;
     public static void main(String[] args) {
         jugadores = new L_Jugador();
-        
+        tablero = new Matriz();
         //tablero.Generar_matriz(5, 5);
         //System.out.println("x: "+tablero.Raiz.ab.ab.der.x+", y: "+tablero.Raiz.ab.ab.der.y);
         prueba = new Menu();
+        
         prueba.show();
+        //prueba.setResizable(false);
         
     }
     
