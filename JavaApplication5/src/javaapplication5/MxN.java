@@ -85,6 +85,11 @@ public class MxN extends javax.swing.JFrame {
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
         // TODO add your handling code here:
         JavaApplication5.tablero.Generar_matriz(Integer.parseInt(this.dim_M.getText()), Integer.parseInt(this.dim_N.getText()));
+        JavaApplication5.prueba.setVisible(false);
+        Crear_Personajes personajes;
+        personajes = new Crear_Personajes("Personajes Plantas");
+        //personajes.setTitle("Personajes Plantas");
+        personajes.show();
         this.dispose();
     }//GEN-LAST:event_ConfirmarActionPerformed
 
