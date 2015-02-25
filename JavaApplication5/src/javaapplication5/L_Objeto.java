@@ -27,6 +27,7 @@ public class L_Objeto {
                 aux=aux.siguiente;
             }
             aux.siguiente = Nuevo;
+            aux.siguiente.anterior = aux;
             //System.out.println("incertado");
         }
     }

@@ -32,10 +32,13 @@ public class CargarImagen {
         BufferedImage bmp=null;
         //Creamos un nuevo cuadro de diálogo para seleccionar imagen
         JFileChooser selector=new JFileChooser();
+        File ruta;
+        ruta = new File("C:\\Users\\Denis\\Desktop\\practica");
+        selector.setCurrentDirectory(ruta);
         //Le damos un título
         selector.setDialogTitle("Seleccione una imagen");
         //Filtramos los tipos de archivos
-        FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG & GIF & BMP", "jpg", "gif", "bmp");
+        FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG & GIF & BMP & PNG", "jpg", "gif", "bmp", "png");
         selector.setFileFilter(filtroImagen);
         //Abrimos el cuadro de diálog
         int flag=selector.showOpenDialog(null);

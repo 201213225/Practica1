@@ -359,8 +359,18 @@ public class Crear_Personajes extends javax.swing.JFrame {
         jLabel15.setText("Clase");
 
         jButton6.setText(">");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("<");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Actualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -444,6 +454,28 @@ public class Crear_Personajes extends javax.swing.JFrame {
             Actualizar(JavaApplication5.Zombi.raiz);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+    void actualizar(){
+        if (this.getTitle().contains("Planta")) {
+            Actualizar(guia);
+        } else {
+            Actualizar(guia);
+        }
+    }
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        if(guia.siguiente!=null && guia.siguiente.siguiente!=null){
+            guia = guia.siguiente.siguiente;
+            actualizar();
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        if(guia.anterior!=null && guia.anterior.anterior!=null){
+            guia = guia.anterior.anterior;
+            actualizar();
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -536,6 +568,12 @@ public class Crear_Personajes extends javax.swing.JFrame {
                 this.Ataque2.setText(Integer.toString(aux.siguiente.daño));
                 this.Puntos2.setText(Integer.toString(aux.siguiente.vida));
                 this.Nombre2.setText(aux.siguiente.Nombre);
+            }else{
+                this.Imagen2.setIcon(null);
+                this.Clase2.setText("-");
+                this.Ataque2.setText("-");
+                this.Puntos2.setText("-");
+                this.Nombre2.setText("-");
             }
         }
     }

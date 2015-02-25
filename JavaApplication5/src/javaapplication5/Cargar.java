@@ -18,7 +18,7 @@ public class Cargar extends javax.swing.JFrame {
      * Creates new form Cargar
      */
     BufferedImage ruta;
-    
+
     public Cargar() {
         initComponents();
         this.jComboBox2.removeAllItems();
@@ -229,28 +229,34 @@ public class Cargar extends javax.swing.JFrame {
         // TODO add your handling code here:
         CargarImagen imagen;
         imagen = new CargarImagen();
-        ruta = imagen.abrirImagen();
-        jLabel6.setIcon(new ImageIcon(ruta));
+        
+            ruta = imagen.abrirImagen();
+            if(ruta != null){
+                jLabel6.setIcon(new ImageIcon(ruta));
+            }
+            
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(this.jTextField1.getText().length()!=0 && this.jTextField2.getText().length()!=0 && this.jTextField3.getText().length()!=0 && ruta != null){
+        if (this.jTextField1.getText().length() != 0 && this.jTextField2.getText().length() != 0 && this.jTextField3.getText().length() != 0 && ruta != null) {
             Nodo_Personaje aux;
-            if(this.getTitle().contains("Planta")){
-                
-                aux = JavaApplication5.Plantas.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()),this.jComboBox2.getToolTipText(), ruta);
-                
+            if (this.getTitle().contains("Planta")) {
+
+                aux = JavaApplication5.Plantas.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()), this.jComboBox2.getSelectedItem().toString(), ruta);
+
                 JavaApplication5.Plantas.incertar_objeto(aux);
-                
-            }else{
-                aux = JavaApplication5.Zombi.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()),this.jComboBox2.getToolTipText(), ruta);
-                
+
+            } else {
+                aux = JavaApplication5.Zombi.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()), this.jComboBox2.getSelectedItem().toString(), ruta);
+
                 JavaApplication5.Zombi.incertar_objeto(aux);
             }
-            
+
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -12,11 +12,12 @@ import java.awt.event.WindowEvent;
  *
  * @author Denis
  */
-public class Area_Juego extends javax.swing.JFrame {
+public class Area_Juego extends javax.swing.JFrame implements Runnable {
 
     /**
      * Creates new form Area_Juego
      */
+    //Hilo a=new Hilo();
     public Area_Juego() {
         initComponents();
         addWindowListener(new WindowAdapter() {
@@ -145,4 +146,9 @@ public class Area_Juego extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -13,6 +13,7 @@ import java.awt.image.BufferedImage;
  */
 class Nodo_Personaje {
     Nodo_Personaje siguiente;
+    Nodo_Personaje anterior;
     String Nombre;
     int daño;
     int vida;

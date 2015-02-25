@@ -19,6 +19,8 @@ public  class JavaApplication5 {
     public static Menu prueba;
     public static L_Objeto Plantas;
     public static L_Objeto Zombi;
+    public static L_Pila PilaPlanta;
+    public static L_Cola ColaZombi;
     public static void main(String[] args) {
         jugadores = new L_Jugador();
         tablero = new Matriz();
