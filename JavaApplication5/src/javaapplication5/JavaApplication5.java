@@ -9,7 +9,7 @@ package javaapplication5;
  *
  * @author Denis
  */
-public class JavaApplication5 {
+public  class JavaApplication5 {
 
     /**
      * @param args the command line arguments
@@ -17,9 +17,13 @@ public class JavaApplication5 {
     public static Matriz tablero;
     public static L_Jugador jugadores;
     public static Menu prueba;
+    public static L_Objeto Plantas;
+    public static L_Objeto Zombi;
     public static void main(String[] args) {
         jugadores = new L_Jugador();
         tablero = new Matriz();
+        Plantas = new L_Objeto();
+        Zombi = new L_Objeto();
         //tablero.Generar_matriz(5, 5);
         //System.out.println("x: "+tablero.Raiz.ab.ab.der.x+", y: "+tablero.Raiz.ab.ab.der.y);
         prueba = new Menu();

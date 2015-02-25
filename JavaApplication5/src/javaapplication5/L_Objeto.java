@@ -5,14 +5,16 @@
  */
 package javaapplication5;
 
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author Denis
  */
 public class L_Objeto {
     public Nodo_Personaje raiz;
-    public Nodo_Personaje crear_Objeto(String Nombre,int daño,int vida,String Clase){
-        Nodo_Personaje a = new Nodo_Personaje(Nombre, daño, vida, Clase);
+    public Nodo_Personaje crear_Objeto(String Nombre,int daño,int vida,String Clase,BufferedImage imagen){
+        Nodo_Personaje a = new Nodo_Personaje(Nombre, daño, vida, Clase, imagen);
         return a;
     }//**/
     public void incertar_objeto(Nodo_Personaje Nuevo){

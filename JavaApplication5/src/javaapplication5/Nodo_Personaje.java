@@ -5,6 +5,8 @@
  */
 package javaapplication5;
 
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author Denis
@@ -15,10 +17,12 @@ class Nodo_Personaje {
     int daño;
     int vida;
     String Clase;
-    Nodo_Personaje(String Nombre,int daño,int vida,String Clase){
+    BufferedImage imagen;
+    Nodo_Personaje(String Nombre,int daño,int vida,String Clase,BufferedImage imagen){
         this.Nombre = Nombre;
         this.daño = daño;
         this.vida = vida;
         this.Clase=Clase;
+        this.imagen = imagen;
     }
 }

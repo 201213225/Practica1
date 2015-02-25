@@ -5,6 +5,9 @@
  */
 package javaapplication5;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author Denis
@@ -16,6 +19,15 @@ public class Area_Juego extends javax.swing.JFrame {
      */
     public Area_Juego() {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+
+                    JavaApplication5.prueba.setVisible(true);
+                    
+                    //this.dispose();
+                }
+            });
     }
 
     /**
@@ -31,7 +43,7 @@ public class Area_Juego extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
