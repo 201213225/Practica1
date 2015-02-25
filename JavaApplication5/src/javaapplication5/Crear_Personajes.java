@@ -8,6 +8,7 @@ package javaapplication5;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
@@ -19,6 +20,8 @@ public class Crear_Personajes extends javax.swing.JFrame {
     /**
      * Creates new form Crear_Personajes
      */
+    Nodo_Personaje guia;
+
     public Crear_Personajes() {
         initComponents();
     }
@@ -36,11 +39,11 @@ public class Crear_Personajes extends javax.swing.JFrame {
                     personajes = new Crear_Personajes("Personajes Zombis");
                     //personajes.setTitle("Personajes Zombis");
                     personajes.show();
-                    
+
                     //this.dispose();
                 }
             });
-        }else{
+        } else {
             addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
@@ -98,6 +101,7 @@ public class Crear_Personajes extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -358,6 +362,13 @@ public class Crear_Personajes extends javax.swing.JFrame {
 
         jButton7.setText("<");
 
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -366,6 +377,8 @@ public class Crear_Personajes extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Agregar)
                 .addGap(22, 22, 22))
             .addGroup(layout.createSequentialGroup()
@@ -402,7 +415,11 @@ public class Crear_Personajes extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Agregar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Agregar)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
 
         pack();
@@ -418,6 +435,15 @@ public class Crear_Personajes extends javax.swing.JFrame {
         //BufferedImage ruta = imagen.abrirImagen();
         //Imagen1.setIcon(new ImageIcon(imagen.abrirImagen()));
     }//GEN-LAST:event_AgregarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (this.getTitle().contains("Planta")) {
+            Actualizar(JavaApplication5.Plantas.raiz);
+        } else {
+            Actualizar(JavaApplication5.Zombi.raiz);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -471,6 +497,7 @@ public class Crear_Personajes extends javax.swing.JFrame {
     private javax.swing.JLabel Nombre2;
     private javax.swing.JLabel Puntos1;
     private javax.swing.JLabel Puntos2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel11;
@@ -492,4 +519,24 @@ public class Crear_Personajes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
+
+    private void Actualizar(Nodo_Personaje Personajes) {
+
+        if (Personajes != null) {
+            Nodo_Personaje aux = Personajes;
+            guia = aux;
+            this.Imagen1.setIcon(new ImageIcon(aux.imagen));
+            this.Clase1.setText(aux.Clase);
+            this.Ataque1.setText(Integer.toString(aux.daño));
+            this.Puntos1.setText(Integer.toString(aux.vida));
+            this.Nombre1.setText(aux.Nombre);
+            if (aux.siguiente != null) {
+                this.Imagen2.setIcon(new ImageIcon(aux.siguiente.imagen));
+                this.Clase2.setText(aux.siguiente.Clase);
+                this.Ataque2.setText(Integer.toString(aux.siguiente.daño));
+                this.Puntos2.setText(Integer.toString(aux.siguiente.vida));
+                this.Nombre2.setText(aux.siguiente.Nombre);
+            }
+        }
+    }
 }

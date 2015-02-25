@@ -18,6 +18,7 @@ public class Cargar extends javax.swing.JFrame {
      * Creates new form Cargar
      */
     BufferedImage ruta;
+    
     public Cargar() {
         initComponents();
         this.jComboBox2.removeAllItems();
@@ -238,10 +239,13 @@ public class Cargar extends javax.swing.JFrame {
             Nodo_Personaje aux;
             if(this.getTitle().contains("Planta")){
                 
-                aux = JavaApplication5.Plantas.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()),this.jComboBox2.getName(), ruta);
+                aux = JavaApplication5.Plantas.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()),this.jComboBox2.getToolTipText(), ruta);
+                
                 JavaApplication5.Plantas.incertar_objeto(aux);
+                
             }else{
-                aux = JavaApplication5.Zombi.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()),this.jComboBox2.getName(), ruta);
+                aux = JavaApplication5.Zombi.crear_Objeto(this.jTextField1.getText(), Integer.parseInt(this.jTextField3.getText()), Integer.parseInt(this.jTextField2.getText()),this.jComboBox2.getToolTipText(), ruta);
+                
                 JavaApplication5.Zombi.incertar_objeto(aux);
             }
             
