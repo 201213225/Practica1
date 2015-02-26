@@ -125,7 +125,7 @@ public class L_Cola {
             aux=aux.siguiente;
         }
         Cola=Cola+i+"[label=\"Nombre: "+aux.planta.Nombre+", Puntos: "+aux.planta.vida+",\nDano: "+aux.planta.daño+", Clase: "+aux.planta.Clase+"\"]\n";
-        Cola=Cola+enlaces+"}\n" +
+        Cola=Cola+enlaces+i+"}\n" +
         "\n" +
         "}";
         

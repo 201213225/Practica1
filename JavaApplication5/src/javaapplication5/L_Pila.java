@@ -109,7 +109,7 @@ public class L_Pila {
             aux=aux.siguiente;
         }
         Pila=Pila+i+"[label=\"Nombre: "+aux.zombi.Nombre+", Puntos: "+aux.zombi.vida+",\nDano: "+aux.zombi.daño+", Clase: "+aux.zombi.Clase+"\"]\n";
-        Pila=Pila+enlaces+"}\n" +
+        Pila=Pila+enlaces+i+"}\n" +
         "\n" +
         "}";
         
