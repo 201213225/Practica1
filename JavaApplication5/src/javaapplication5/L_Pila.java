@@ -94,6 +94,8 @@ public class L_Pila {
         }
     }
     public void escribir() throws IOException{
+        String enlaces="";
+        int i=0;
         String Pila="digraph g {\n" +
         "node [shape=record];\n" +
         "\n" +
@@ -101,11 +103,13 @@ public class L_Pila {
         "label= \"Pila de Zombis\"\n";
         Nodo_Pila aux = lista;
         while(aux.siguiente!=null){
-            Pila=Pila+"\"Nombre: "+aux.zombi.Nombre+"\nPuntos: "+aux.zombi.vida+"\nDano: "+aux.zombi.daño+"\nClase: "+aux.zombi.Clase+"\"->";
+            Pila=Pila+i+"[label=\"Nombre: "+aux.zombi.Nombre+"\nPuntos: "+aux.zombi.vida+"\nDano: "+aux.zombi.daño+"\nClase: "+aux.zombi.Clase+"\"]\n";
+            enlaces = enlaces+i+"->";
+            i++;
             aux=aux.siguiente;
         }
-        Pila=Pila+"\"Nombre: "+aux.zombi.Nombre+", Puntos: "+aux.zombi.vida+",\nDano: "+aux.zombi.daño+", Clase: "+aux.zombi.Clase+"\"";
-        Pila=Pila+"}\n" +
+        Pila=Pila+i+"[label=\"Nombre: "+aux.zombi.Nombre+", Puntos: "+aux.zombi.vida+",\nDano: "+aux.zombi.daño+", Clase: "+aux.zombi.Clase+"\"]\n";
+        Pila=Pila+enlaces+"}\n" +
         "\n" +
         "}";
         
