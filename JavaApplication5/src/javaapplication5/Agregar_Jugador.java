@@ -35,9 +35,9 @@ public class Agregar_Jugador extends javax.swing.JFrame {
         this.setTitle(Titulo);
         L_Jugador aux = JavaApplication5.jugadores;
         if (aux.raiz != null) {
-            System.out.println("no es null");
-            System.out.println(this.getTitle());
-            System.out.println(aux.raiz.tipo);
+            //System.out.println("no es null");
+            //System.out.println(this.getTitle());
+            //System.out.println(aux.raiz.tipo);
             
             if (aux.raiz.tipo.equals(this.getTitle())) {
                 //System.out.println("encontrado");
@@ -177,10 +177,10 @@ public class Agregar_Jugador extends javax.swing.JFrame {
             }
             Nodo_Texto aux = actual.texto;
             while (aux != null) {
-                System.out.print(aux.texto+",");
+                //System.out.print(aux.texto+",");
                 aux=aux.siguiente;
             }
-            System.out.println();
+            //System.out.println();
         }
         //L_Jugador aux=JavaApplication5.jugadores;
         //aux.agregar_jugador(this.txnombre.getText(),Integer.parseInt(this.txcant.getText()), this.getTitle());
@@ -190,38 +190,7 @@ public class Agregar_Jugador extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Jugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Jugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Jugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Agregar_Jugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Agregar_Jugador().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

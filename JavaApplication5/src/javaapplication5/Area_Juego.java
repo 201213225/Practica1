@@ -49,31 +49,11 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
             listaZombis = new JLabel[auxZ.cantidad];
         }//*/
 
-        a.start();
+        
         initComponents();//*
-        L_zombi.incertar(Zombi.buscarRandom());
-        L_zombi.incertar(Zombi.buscarRandom());
-        L_zombi.incertar(Zombi.buscarRandom());
-        L_zombi.incertar(Zombi.buscarRandom());
-        L_zombi.incertar(Zombi.buscarRandom());
-        L_plantas.incertar(Plantas.buscarRandom());
-        L_plantas.incertar(Plantas.buscarRandom());
-        L_plantas.incertar(Plantas.buscarRandom());
-        L_plantas.incertar(Plantas.buscarRandom());
-        L_plantas.incertar(Plantas.buscarRandom());//*/
-
-        listaPlantas = L_plantas.crearimagenes(auxP.cantidad);
-        listaZombis = L_zombi.crearimagenes(auxZ.cantidad);
-            //JLabel vectorP[]= new JLabel[auxP.cantidad];
-        //JLabel vectorZ[]= new JLabel[auxZ.cantidad];
-        for (int i = 0; i < listaPlantas.length; i++) {
-            listaPlantas[i].setBounds(0, i * 100, 100, 100);
-            PanelPlantas.add(listaPlantas[i], null);
-        }
-        for (int i = 0; i < listaZombis.length; i++) {
-            listaZombis[i].setBounds(0, i * 100, 100, 100);
-            PanelZombi.add(listaZombis[i], null);
-        }
+        Cinco_Iniciales();
+        
+        a.start();
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -105,7 +85,7 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
         PanelPlantas.setLayout(PanelPlantasLayout);
         PanelPlantasLayout.setHorizontalGroup(
             PanelPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 137, Short.MAX_VALUE)
         );
         PanelPlantasLayout.setVerticalGroup(
             PanelPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +96,7 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
         PanelZombi.setLayout(PanelZombiLayout);
         PanelZombiLayout.setHorizontalGroup(
             PanelZombiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 137, Short.MAX_VALUE)
         );
         PanelZombiLayout.setVerticalGroup(
             PanelZombiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,11 +107,11 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+            .addGap(0, 618, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 531, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,8 +121,8 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(PanelPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelZombi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -191,16 +171,47 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
             listaZombis = L_zombi.crearimagenes(auxZ.cantidad);
             //JLabel vectorP[]= new JLabel[auxP.cantidad];
             //JLabel vectorZ[]= new JLabel[auxZ.cantidad];
-            for (int i = 0; i < listaPlantas.length; i++) {
-                listaPlantas[i].setBounds(0, i * 100, 100, 100);
+            for (int i = 0; i < listaPlantas.length&& listaPlantas[i]!=null; i++) {
+                listaPlantas[i].setBounds(0, i * 100, 80, 80);
                 PanelPlantas.add(listaPlantas[i], null);
             }
-            for (int i = 0; i < listaZombis.length; i++) {
-                listaZombis[i].setBounds(0, i * 100, 100, 100);
+            for (int i = 0; i < listaZombis.length&&listaZombis[i]!=null; i++) {
+                listaZombis[i].setBounds(0, i * 100, 80, 80);
                 PanelZombi.add(listaZombis[i], null);
             }
+            this.repaint();
             //System.out.println(i);
             //i++;
         }
+    }
+
+    private void Cinco_Iniciales() {
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());//*/
+
+        listaPlantas = L_plantas.crearimagenes(auxP.cantidad);
+        listaZombis = L_zombi.crearimagenes(auxZ.cantidad);
+            //JLabel vectorP[]= new JLabel[auxP.cantidad];
+        //JLabel vectorZ[]= new JLabel[auxZ.cantidad];
+        for (int i = 0; i < listaPlantas.length && listaPlantas[i]!=null; i++) {
+            System.out.println(i);
+            listaPlantas[i].setBounds(0, i * 100, 80, 80);
+            this.PanelPlantas.add(listaPlantas[i], null);
+            
+        }
+        for (int i = 0; i < listaZombis.length &&listaZombis[i]!=null; i++) {
+            listaZombis[i].setBounds(0, i * 100, 80, 80);
+            this.PanelZombi.add(listaZombis[i], null);
+            
+        }//*/
+        this.repaint();
     }
 }

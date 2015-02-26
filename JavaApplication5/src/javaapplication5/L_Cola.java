@@ -58,6 +58,7 @@ public class L_Cola {
         Nodo_Cola aux = lista;
         int i=0;
         while(aux!=null){
+            //System.out.println(i);
             ImageIcon imagen = new ImageIcon(aux.planta.imagen);
             etiqueta[i]=new JLabel("");
             etiqueta[i].setIcon(imagen);

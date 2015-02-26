@@ -50,7 +50,7 @@ public class L_Objeto {
             aux=aux.siguiente;
             i++;
         }
-        System.out.println(aux.Nombre);
+        //System.out.println(aux.Nombre);
         return aux;
     }
 }

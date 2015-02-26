@@ -30,6 +30,8 @@ public  class JavaApplication5 {
         PilaZombi = new L_Pila();
         //tablero.Generar_matriz(5, 5);
         //System.out.println("x: "+tablero.Raiz.ab.ab.der.x+", y: "+tablero.Raiz.ab.ab.der.y);
+        Reportes boton = new Reportes();
+        boton.setVisible(true);
         prueba = new Menu();
         
         prueba.show();

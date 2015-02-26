@@ -23,5 +23,10 @@ public class L_Jugador {
             raiz.siguiente.cantidad=cantidad;
             raiz.siguiente.nombre = nombre;
         }
+        graphviz();
+    }
+
+    public void graphviz() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
