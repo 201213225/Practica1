@@ -8,8 +8,13 @@ package javaapplication5;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -547,4 +552,7 @@ public class Crear_Personajes extends javax.swing.JFrame {
             }
         }
     }
+    
+    
+    
 }
