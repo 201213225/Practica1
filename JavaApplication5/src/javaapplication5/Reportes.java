@@ -77,6 +77,20 @@ public class Reportes extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            // TODO add your handling code here:
+            JavaApplication5.PilaZombi.escribir();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            // TODO add your handling code here:
+            JavaApplication5.ColaPlanta.escribir();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
