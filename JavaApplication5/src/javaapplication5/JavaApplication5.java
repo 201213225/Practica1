@@ -19,13 +19,15 @@ public  class JavaApplication5 {
     public static Menu prueba;
     public static L_Objeto Plantas;
     public static L_Objeto Zombi;
-    public static L_Pila PilaPlanta;
-    public static L_Cola ColaZombi;
+    public static L_Cola ColaPlanta;
+    public static L_Pila PilaZombi;
     public static void main(String[] args) {
         jugadores = new L_Jugador();
         tablero = new Matriz();
         Plantas = new L_Objeto();
         Zombi = new L_Objeto();
+        ColaPlanta = new L_Cola();
+        PilaZombi = new L_Pila();
         //tablero.Generar_matriz(5, 5);
         //System.out.println("x: "+tablero.Raiz.ab.ab.der.x+", y: "+tablero.Raiz.ab.ab.der.y);
         prueba = new Menu();

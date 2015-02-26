@@ -7,6 +7,9 @@ package javaapplication5;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
 
 /**
  *
@@ -14,21 +17,73 @@ import java.awt.event.WindowEvent;
  */
 public class Area_Juego extends javax.swing.JFrame implements Runnable {
 
+    Nodo_Jugador aux = JavaApplication5.jugadores.raiz;
+    Nodo_Jugador auxP;
+    Nodo_Jugador auxZ;
+    L_Cola L_plantas = JavaApplication5.ColaPlanta;
+    L_Pila L_zombi = JavaApplication5.PilaZombi;
+    L_Objeto Plantas = JavaApplication5.Plantas;
+    L_Objeto Zombi = JavaApplication5.Zombi;
+    //int noZ;
+    //int noP;
+    JLabel listaZombis[];//= new JLabel[];
+    JLabel listaPlantas[];
     /**
      * Creates new form Area_Juego
      */
     //Hilo a=new Hilo();
-    public Area_Juego() {
-        initComponents();
-        addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowClosing(WindowEvent e) {
+    Thread a = new Thread(this);
 
-                    JavaApplication5.prueba.setVisible(true);
-                    
-                    //this.dispose();
-                }
-            });
+    public Area_Juego() {
+
+        //*/
+        if (aux.tipo.equals("Zombis")) {
+            auxZ = aux;
+            listaZombis = new JLabel[auxZ.cantidad];
+            auxP = aux.siguiente;
+            listaPlantas = new JLabel[auxP.cantidad];
+        } else {
+            auxP = aux;
+            listaPlantas = new JLabel[auxP.cantidad];
+            auxZ = aux.siguiente;
+            listaZombis = new JLabel[auxZ.cantidad];
+        }//*/
+
+        a.start();
+        initComponents();//*
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_zombi.incertar(Zombi.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());
+        L_plantas.incertar(Plantas.buscarRandom());//*/
+
+        listaPlantas = L_plantas.crearimagenes(auxP.cantidad);
+        listaZombis = L_zombi.crearimagenes(auxZ.cantidad);
+            //JLabel vectorP[]= new JLabel[auxP.cantidad];
+        //JLabel vectorZ[]= new JLabel[auxZ.cantidad];
+        for (int i = 0; i < listaPlantas.length; i++) {
+            listaPlantas[i].setBounds(0, i * 100, 100, 100);
+            PanelPlantas.add(listaPlantas[i], null);
+        }
+        for (int i = 0; i < listaZombis.length; i++) {
+            listaZombis[i].setBounds(0, i * 100, 100, 100);
+            PanelZombi.add(listaZombis[i], null);
+        }
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+                JavaApplication5.prueba.setVisible(true);
+
+                //this.dispose();
+            }
+        });
+
     }
 
     /**
@@ -40,31 +95,31 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        PanelPlantas = new javax.swing.JPanel();
+        PanelZombi = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanelPlantasLayout = new javax.swing.GroupLayout(PanelPlantas);
+        PanelPlantas.setLayout(PanelPlantasLayout);
+        PanelPlantasLayout.setHorizontalGroup(
+            PanelPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelPlantasLayout.setVerticalGroup(
+            PanelPlantasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanelZombiLayout = new javax.swing.GroupLayout(PanelZombi);
+        PanelZombi.setLayout(PanelZombiLayout);
+        PanelZombiLayout.setHorizontalGroup(
+            PanelZombiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelZombiLayout.setVerticalGroup(
+            PanelZombiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -85,11 +140,11 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelZombi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -98,8 +153,8 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanelPlantas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelZombi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -109,46 +164,43 @@ public class Area_Juego extends javax.swing.JFrame implements Runnable {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Area_Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Area_Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Area_Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Area_Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Area_Juego().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel PanelPlantas;
+    private javax.swing.JPanel PanelZombi;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Thread ct = Thread.currentThread();
+        //int i = 0;
+        while (ct == a) {
+            try {
+                Thread.sleep(5000);
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Area_Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            PanelPlantas.removeAll();
+            PanelZombi.removeAll();
+            L_plantas.incertar(Plantas.buscarRandom());
+            L_zombi.incertar(Zombi.buscarRandom());
+
+            listaPlantas = L_plantas.crearimagenes(auxP.cantidad);
+            listaZombis = L_zombi.crearimagenes(auxZ.cantidad);
+            //JLabel vectorP[]= new JLabel[auxP.cantidad];
+            //JLabel vectorZ[]= new JLabel[auxZ.cantidad];
+            for (int i = 0; i < listaPlantas.length; i++) {
+                listaPlantas[i].setBounds(0, i * 100, 100, 100);
+                PanelPlantas.add(listaPlantas[i], null);
+            }
+            for (int i = 0; i < listaZombis.length; i++) {
+                listaZombis[i].setBounds(0, i * 100, 100, 100);
+                PanelZombi.add(listaZombis[i], null);
+            }
+            //System.out.println(i);
+            //i++;
+        }
     }
 }
